@@ -1,38 +1,59 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Layout from './components/layout/Layout';
+// Remove old component imports if they are now part of sections
+// import OpportunityRadar from './components/common/OpportunityRadar'; 
+// ... other old imports
+
+// Import Section Components
+import MarketDynamicsSection from './sections/MarketDynamicsSection';
+import TechnologyAdoptionSection from './sections/TechnologyAdoptionSection';
+import EmergingRiskSection from './sections/EmergingRiskSection';
+import StartupEcosystemSection from './sections/StartupEcosystemSection';
+import DistributionChannelSection from './sections/DistributionChannelSection';
+import CustomerExperienceSection from './sections/CustomerExperienceSection';
+import CapitalFlowSection from './sections/CapitalFlowSection';
+import RegulatoryLandscapeSection from './sections/RegulatoryLandscapeSection';
+import InvestmentOpportunitySection from './sections/InvestmentOpportunitySection';
+import MainPage from './pages/MainPage'; // Import the new MainPage
+// Removed mockData import as it's likely used within sections now
+// import { opportunityData } from './data/mockData'; 
 
 function App() {
+  // Start with 'home' section
+  const [activeSection, setActiveSection] = useState('home'); 
+
+  const renderSection = () => {
+    switch (activeSection) {
+      case 'home': // Add case for home
+        return <MainPage onNavigate={setActiveSection} />;
+      case 'market':
+        return <MarketDynamicsSection />;
+      case 'tech':
+        return <TechnologyAdoptionSection />;
+      case 'risk':
+        return <EmergingRiskSection />;
+      case 'startup':
+        return <StartupEcosystemSection />;
+      case 'distribution':
+        return <DistributionChannelSection />;
+      case 'cx':
+        return <CustomerExperienceSection />;
+      case 'capital':
+        return <CapitalFlowSection />;
+      case 'regulatory':
+        return <RegulatoryLandscapeSection />;
+      case 'opportunity':
+        return <InvestmentOpportunitySection />;
+      default:
+        return <MainPage onNavigate={setActiveSection} />; // Default to home
+    }
+  };
+
   return (
-    <Layout>
-      <div className="dashboard-container" style={{ padding: '20px' }}>
-        <h1 style={{ marginBottom: '16px', color: '#F5F5F7' }}>Stripes VC Insurtech Dashboard</h1>
-        <p style={{ marginBottom: '24px', color: '#8E8E93' }}>
-          Interactive analytics for the insurtech sector
-        </p>
-        
-        <div style={{ 
-          backgroundColor: '#2C2C2E',
-          borderRadius: '12px',
-          padding: '24px',
-          boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)',
-        }}>
-          <h2 style={{ 
-            fontSize: '20px', 
-            fontWeight: 600, 
-            marginTop: 0, 
-            marginBottom: '16px', 
-            color: '#F5F5F7' 
-          }}>
-            Welcome to Stripes VC Insurtech Dashboard
-          </h2>
-          <p style={{ color: '#D1D1D6' }}>
-            This dashboard provides interactive visualizations for venture capital investment in the insurtech sector.
-          </p>
-          <p style={{ color: '#D1D1D6' }}>
-            Explore market trends, technology adoption, investment opportunities, and startup ecosystem data.
-          </p>
-        </div>
-      </div>
+    <Layout onNavigate={setActiveSection} activeSection={activeSection}>
+      {/* Remove the old static grid layout */}
+      {/* The content area will now be filled by the active section */}
+      {renderSection()}
     </Layout>
   );
 }

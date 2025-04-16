@@ -1,88 +1,69 @@
-# Stripes VC Insurtech Dashboard
+# InsurTech Interactive Dashboard
 
-An interactive analytics dashboard for venture capital investment in the insurtech sector, built with React and TypeScript. This dashboard visualizes market trends, technology adoption, investment opportunities, and startup ecosystem data to facilitate data-driven investment decisions.
+This project is a React-based interactive dashboard visualizing market trends, technology adoption, risks, and investment opportunities within the InsurTech industry. It features multiple data sections and a mock AI-powered search for exploring insights.
 
-**Live Demo:** [View Demo](https://andeslee444.github.io/insurtech-dashboard-v2/)
-
-![Dashboard Preview](public/dashboard-preview.png)
+Built for Stripes Venture Capital.
 
 ## Features
 
-- **Interactive Visualizations**: Dynamic charts and graphs that respond to user interactions
-- **Multi-dimensional Analysis**: Nine specialized analytics sections covering different aspects of the insurtech market
-- **Apple-Inspired Design**: Clean, intuitive UI following Apple Design Principles
-- **Responsive Layout**: Optimized for various screen sizes
+*   **Interactive Sections:** Explore 9 key areas of the InsurTech landscape:
+    *   Market Dynamics
+    *   Technology Adoption
+    *   Emerging Risks
+    *   Startup Ecosystem
+    *   Distribution Channels
+    *   Customer Experience
+    *   Capital Flow
+    *   Regulatory Landscape
+    *   Investment Opportunities
+*   **Data Visualization:** Utilizes various charts (Bar, Area, Radar) and tables to present data effectively.
+*   **Mock AI Search:** A simulated AI search on the homepage provides generated insights based on queries.
+*   **Modern UI:** Clean, responsive layout inspired by modern design principles.
+*   **TypeScript:** Built with TypeScript for enhanced code quality and maintainability.
 
-## Dashboard Sections
+## Getting Started
 
-1. **Market Dynamics**: Market share evolution and geographical distribution
-2. **Technology Adoption**: Technology adoption rates, growth trends, and investment analysis
-3. **Emerging Risks**: Risk severity and trend analysis
-4. **Startup Ecosystem**: Funding by stage and category analysis
-5. **Distribution Channels**: Channel effectiveness and efficiency metrics
-6. **Customer Experience**: Traditional vs. insurtech customer journey comparison
-7. **Capital Flow**: Investment sources and destination analysis
-8. **Regulatory Landscape**: Regulatory impact assessment
-9. **Investment Opportunities**: Opportunity radar and scoring system
+### Prerequisites
 
-## Tech Stack
+*   Node.js (v16 or later recommended)
+*   npm (usually comes with Node.js)
 
-- **Framework**: React
-- **Language**: TypeScript
-- **Styling**: Inline styles with consistent design variables
-- **Charts**: Custom chart components with D3.js integration
-- **Icons**: react-icons (Heroicons)
+### Installation
 
-## Development Setup
+1.  Clone the repository:
+    ```bash
+    git clone https://github.com/andeslee444/insurtech-dashboard-v2.git
+    cd insurtech-dashboard-v2
+    ```
+2.  Install dependencies:
+    ```bash
+    npm install
+    ```
 
-1. **Prerequisites**:
-   - Node.js (v16+)
-   - npm or yarn
+### Running the Development Server
 
-2. **Installation**:
-   ```bash
-   # Clone the repository
-   git clone https://github.com/andeslee444/insurtech-dashboard-v2.git
-   
-   # Navigate to the directory
-   cd insurtech-dashboard-v2
-   
-   # Install dependencies
-   npm install
-   ```
+To start the application locally:
 
-3. **Running the Development Server**:
-   ```bash
-   npm start
-   ```
+```bash
+npm start
+```
 
-4. **Building for Production**:
-   ```bash
-   npm run build
-   ```
+This will typically open the application in your default web browser at `http://localhost:3000`.
+
+## Deployment
+
+This application is configured for deployment to GitHub Pages.
+
+1.  **Set Homepage:** Ensure the `homepage` field in `package.json` is set correctly to `https://andeslee444.github.io/insurtech-dashboard-v2/`.
+2.  **Deploy:** Run the deployment script:
+    ```bash
+    npm run deploy
+    ```
+    This will build the application and push the contents of the `build` directory to the `gh-pages` branch on GitHub.
+3.  **Configure GitHub Pages:** In your repository settings on GitHub, ensure the Pages source is set to deploy from the `gh-pages` branch.
+
+*(Alternatively, a GitHub Actions workflow in `.github/workflows/deploy.yml` can automate this process on pushes to the main branch.)*
 
 ## Project Structure
 
-```
-src/
-├── App.tsx                 # Main application component
-├── components/             # Reusable UI components
-│   ├── common/             # Shared components (charts, tables)
-│   └── layout/             # Layout components
-├── data/                   # Mock data and types
-│   └── mockData.ts         # Data structures for visualizations
-└── sections/               # Dashboard section components
-```
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Acknowledgments
-
-- Design inspiration from Apple's Human Interface Guidelines
-- Data modeling based on real insurtech market trends
+See `Structure.md` for a detailed explanation of the project's directory layout. 

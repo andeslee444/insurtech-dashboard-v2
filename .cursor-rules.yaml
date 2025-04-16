@@ -46,3 +46,21 @@ rules:
       prompt_suffix: |
         When working with charts, visualizations, or other interactive elements that rely on mock data, consult the `/Insurtech DataContext.txt` file in the root directory for details on data structures, ranges, and intended representation.
     trigger: code_generation, code_edit # Most relevant when actively using data
+
+  - id: consolidate_dev_notes
+    description: Periodically consolidate development notes, prioritizing effective learnings and tracking their impact.
+    every_llm_call:
+      prompt_suffix: |
+        Every fifth session, review and consolidate the `development_notes.md` file:
+        1. Create a new "Development Notes Consolidation" section in the document
+        2. Identify key learnings from past entries that have proven most valuable in subsequent development
+        3. For each key learning:
+           - Summarize the original insight
+           - Document specific instances where applying this learning improved development outcomes
+           - Rate the learning's effectiveness (High/Medium/Low) based on its impact
+           - Tag recurring themes (e.g., #TypeScript, #ComponentDesign, #Performance)
+        4. Create a "Quick Reference" subsection that lists the top 5-7 most impactful learnings for easy access
+        5. Organize learnings by theme/category to build a knowledge repository
+        6. Remove or archive outdated or superseded learnings to maintain clarity
+        This practice ensures development knowledge evolves and becomes more valuable over time, with the most effective insights remaining prominently accessible.
+    trigger: every_llm_call

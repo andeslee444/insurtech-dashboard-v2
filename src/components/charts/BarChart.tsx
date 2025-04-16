@@ -25,10 +25,10 @@ const BarChart: React.FC<BarChartProps> = ({
   width = 800,
   height = 400,
   margin = { top: 20, right: 30, bottom: 50, left: 60 },
+  horizontal = false,
   xAxisLabel = horizontal ? 'Value' : 'Category',
   yAxisLabel = horizontal ? 'Category' : 'Value',
   title,
-  horizontal = false
 }) => {
   // In a real implementation, this would use D3.js or another charting library
   // For now, we'll create a placeholder component

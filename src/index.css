@@ -1,12 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Apple-inspired color palette */
+  --primary: #0A84FF;
+  --primary-dark: #0071E3;
+  --background: #1C1C1E;
+  --card-bg: #2C2C2E;
+  --border: #3A3A3C;
+  --text-primary: #F5F5F7;
+  --text-secondary: #8E8E93;
+  --green: #30D158;
+  --purple: #5E5CE6;
+  --orange: #FF9F0A;
+  --red: #FF453A;
+  
+  /* Typography */
+  --font-size-xs: 12px;
+  --font-size-sm: 13px;
+  --font-size-base: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+  --font-size-xxl: 24px;
+  --font-size-huge: 28px;
+  
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-base: 16px;
+  --space-lg: 20px;
+  --space-xl: 24px;
+  --space-xxl: 32px;
+  
+  /* Border Radius */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-pill: 20px;
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.14);
+  
+  /* Animation */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.2s ease;
+  --transition-slow: 0.3s ease-in-out;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #1C1C1E;
-  color: #F5F5F7;
+  background-color: var(--background);
+  color: var(--text-primary);
+  line-height: 1.5;
+  letter-spacing: -0.011em;
 }
 
 code {
@@ -14,161 +68,228 @@ code {
     monospace;
 }
 
+/* Main layout containers */
 .dashboard-container {
-  padding: 20px;
+  padding: var(--space-xl);
   max-width: 1600px;
   margin: 0 auto;
 }
 
 .dashboard-container h1 {
-  font-size: 28px;
+  font-size: var(--font-size-huge);
   font-weight: 600;
-  margin-bottom: 10px;
-  color: #F5F5F7;
+  margin-bottom: var(--space-base);
+  color: var(--text-primary);
+  letter-spacing: -0.022em;
 }
 
 .dashboard-description {
-  font-size: 16px;
-  color: #8E8E93;
-  margin-bottom: 30px;
+  font-size: var(--font-size-md);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-xxl);
+  max-width: 700px;
+  line-height: 1.5;
 }
 
 .dashboard-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(700px, 1fr));
-  gap: 20px;
+  gap: var(--space-xl);
 }
 
+/* Chart title styles */
+.chart-title {
+  font-size: var(--font-size-lg);
+  font-weight: 500;
+  margin-top: 0;
+  margin-bottom: var(--space-md);
+  color: var(--text-primary);
+  letter-spacing: -0.015em;
+}
+
+/* Base button styles */
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: var(--font-family);
+  transition: all 0.2s ease;
+}
+
+button:focus {
+  outline: none;
+}
+
+/* Pill button styles */
+.pill-button {
+  font-size: 0.8rem;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.7);
+  transition: all 0.2s ease;
+}
+
+.pill-button:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.pill-button.selected {
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  font-weight: 500;
+}
+
+.pill-button-group .pill-button {
+  border-radius: 16px;
+}
+
+/* Chart placeholder styles */
+.chart-placeholder {
+  background-color: var(--card-bg) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--shadow-md) !important;
+}
+
+.chart-info {
+  color: var(--text-primary) !important;
+}
+
+/* Section container styles */
+.section-container {
+  background-color: var(--card-bg);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.section-container:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+/* Layout styles */
+.layout-header {
+  background-color: var(--background);
+  border-bottom: 1px solid var(--border);
+}
+
+.layout-sidebar {
+  background-color: var(--card-bg);
+  border-right: 1px solid var(--border);
+}
+
+.layout-content {
+  background-color: var(--background);
+  padding: var(--space-lg);
+}
+
+/* Form elements */
+select, input {
+  background-color: var(--border);
+  border: 1px solid #48484A;
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  padding: var(--space-sm) var(--space-md);
+  font-family: inherit;
+  font-size: var(--font-size-base);
+  transition: border-color var(--transition-base);
+}
+
+select:focus, input:focus {
+  border-color: var(--primary);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(10, 132, 255, 0.2);
+}
+
+/* Scorecard styles */
+.scorecard-container {
+  background-color: var(--card-bg) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--shadow-md) !important;
+  overflow: hidden !important;
+}
+
+.scorecard-header {
+  border-bottom: 1px solid var(--border) !important;
+  padding: var(--space-md) var(--space-lg) !important;
+}
+
+.scorecard-row:hover {
+  background-color: rgba(58, 58, 60, 0.5) !important;
+}
+
+.scorecard-footer {
+  background-color: var(--border) !important;
+  padding: var(--space-md) var(--space-lg) !important;
+}
+
+/* Data visualization containers */
+.chart-content {
+  padding: var(--space-sm) 0;
+}
+
+.data-table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.data-table-container table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+/* Animation classes */
+.animate-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
   .dashboard-grid {
     grid-template-columns: 1fr;
   }
   
   .dashboard-container h1 {
-    font-size: 24px;
+    font-size: var(--font-size-xxl);
   }
   
   .dashboard-description {
-    font-size: 14px;
+    font-size: var(--font-size-base);
+  }
+  
+  .section-container {
+    padding: var(--space-lg);
   }
 }
 
-/* Chart title styles */
-.chart-title {
-  font-size: 18px;
-  font-weight: 500;
-  margin-top: 0;
-  margin-bottom: 15px;
-  color: #F5F5F7;
-}
-
-/* Button styles */
-.pill-button {
-  background-color: #2C2C2E;
-  border: 1px solid #3A3A3C;
-  border-radius: 20px;
-  padding: 6px 12px;
-  font-size: 14px;
-  color: #F5F5F7;
-  cursor: pointer;
-  transition: all 0.2s;
-  margin-right: 8px;
-  margin-bottom: 8px;
-}
-
-.pill-button.selected {
-  background-color: #0A84FF;
-  border-color: #0A84FF;
-  color: white;
-}
-
-.pill-button:hover {
-  background-color: #3A3A3C;
-}
-
-.pill-button.selected:hover {
-  background-color: #0071E3;
-}
-
-/* Chart placeholder styles */
-.chart-placeholder {
-  background-color: #2C2C2E !important;
-  border-radius: 12px !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
-}
-
-.chart-info {
-  color: #F5F5F7 !important;
-}
-
-/* Section container styles */
-.section-container {
-  background-color: #2C2C2E;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-/* Layout styles */
-.layout-header {
-  background-color: #1C1C1E;
-  border-bottom: 1px solid #3A3A3C;
-}
-
-.layout-sidebar {
-  background-color: #2C2C2E;
-  border-right: 1px solid #3A3A3C;
-}
-
-.layout-content {
-  background-color: #1C1C1E;
-}
-
-/* Form elements */
-select, input {
-  background-color: #3A3A3C;
-  border: 1px solid #48484A;
-  border-radius: 8px;
-  color: #F5F5F7;
-  padding: 8px 12px;
-}
-
-select:focus, input:focus {
-  border-color: #0A84FF;
-  outline: none;
-}
-
-/* Scorecard styles */
-.scorecard-container {
-  background-color: #2C2C2E !important;
-  border-radius: 12px !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
-}
-
-.scorecard-header {
-  border-bottom: 1px solid #3A3A3C !important;
-}
-
-.scorecard-row:hover {
-  background-color: #3A3A3C !important;
-}
-
-.scorecard-footer {
-  background-color: #3A3A3C !important;
-}
-
-/* Responsive adjustments */
 @media (max-width: 480px) {
   .dashboard-container {
-    padding: 10px;
+    padding: var(--space-md);
   }
   
   .chart-title {
-    font-size: 16px;
+    font-size: var(--font-size-md);
   }
   
   .pill-button {
-    font-size: 12px;
-    padding: 4px 10px;
+    font-size: var(--font-size-xs);
+    padding: 4px var(--space-sm);
+  }
+  
+  .section-container {
+    padding: var(--space-md);
   }
 }

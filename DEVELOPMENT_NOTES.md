@@ -1,69 +1,55 @@
-# Development Notes
+# Development Notes - Insurtech Dashboard (Condensed)
 
-This document tracks the development process, key decisions, and technical solutions implemented in the Stripes VC Insurtech Dashboard project.
+**Last Updated:** $(date +%Y-%m-%d)
 
-## Recent Updates
+## Core Goal & Project Overview
 
-### TypeScript Refactoring & Bug Fixes (April 2025)
+- **Objective:** Build a visually appealing, interactive Insurtech investment dashboard for Stripes Venture Capital investors.
+- **Focus:** Displaying key E&S (Excess & Surplus) market trends, technology adoption, emerging risks, startup ecosystem insights, and investment opportunities.
+- **Design Philosophy:** Prioritize Apple design principles (Clarity, Deference, Depth).
+- **Technology Stack:** React, TypeScript, D3.js (or similar for charts), styled-components.
+- **Deployment Target:** Static site build deployed to GitHub Pages.
 
-- Resolved type issues with react-icons integration:
-  - Fixed IconType compatibility problems in Layout.tsx by importing the proper IconType from react-icons/lib
-  - Switched to React.createElement for icon rendering instead of JSX syntax to avoid ReactNode vs Component type conflicts
-  
-- Improved chart visualizations:
-  - Implemented overflow handling for Investment in Technology chart
-  - Repositioned gap percentage labels in Technology Gap Analysis chart for better visibility
-  - Added conditional rendering for small gap values to improve readability
+## Current Status & Next Steps
 
-- UI Refinements following Apple Design Principles:
-  - Enhanced sidebar styling with consistent color variables and hover effects
-  - Improved header component with better visual hierarchy
-  - Added smooth transitions for UI interactions
-  - Simplified section IDs for better code maintainability
+- **Status:** Codebase refactoring largely complete (JS to TSX, standard project structure). Key data types and mock data integrated into `src/data/mockData.ts`. Core components and sections are in place. Local development environment setup issues have been addressed (`tsconfig.json` added, dependencies reinstalled). GitHub Pages deployment action is configured.
+- **Immediate Next Steps:**
+    1. Ensure `npm start` runs successfully without compilation errors.
+    2. Verify GitHub Pages deployment status and address any issues.
+    3. Begin implementing interactive chart logic using a library like D3.js or Recharts, replacing placeholders.
+    4. Refine UI/UX elements based on Apple Design Principles and Masterplan.
 
-- Code Cleanup:
-  - Removed unused variables across section components
-  - Fixed duplicate property declarations in style objects
-  - Optimized chart rendering with conditional animations
-  - Streamlined data processing functions
+## Key Technical Decisions
 
-## API Integration Plan
+- **TypeScript:** Standardized on TypeScript (.tsx/.ts) for type safety, maintainability, and developer experience.
+- **Project Structure:** Adopted a standard React structure (`src`, `components`, `data`, `sections`, `utils`, etc.). See `STRUCTURE.md` for details.
+- **Styling:** Using `styled-components` for component-scoped styling.
+- **State Management:** (Not explicitly defined yet, consider Zustand or Context API if needed).
+- **Data:** Using mock data from `src/data/mockData.ts`. Type definitions are crucial.
+- **Build/Deployment:** Using Create React App's build process (`npm run build`) for a static build deployable to GitHub Pages. `server.js` and `Dockerfile` are kept but not required for the current deployment target.
 
-For the future production version, we plan to integrate with real data sources:
+## Essential Context Files
 
-1. Replace mock data with API calls to the insurtech data service
-2. Implement authentication for secure data access
-3. Add data caching mechanism to improve performance
-4. Create endpoints for dynamic filtering options
+- **`/Insurtech Masterplan.txt`:** High-level project vision, design philosophy, detailed specifications for each dashboard section and visualization. **Crucial reference for UI/UX and feature implementation.**
+- **`/Insurtech DataContext.txt`:** Detailed guide on mock data structure, expected visual patterns, and research-based context for each data point/section. **Essential when working with data, charts, and visualizations.**
+- **`/.cursor-rules.yaml`:** Defines rules for the AI assistant, including design guidelines, context referencing, and development note updates.
+- **`/STRUCTURE.md`:** Defines the target file and directory layout.
+- **`/TODO.md`:** Tracks the high-level task list for the project.
 
-## Performance Optimizations
+## Key AI Learnings & Improvements (To be Consolidated Periodically)
 
-- Implemented React.memo for chart components to prevent unnecessary re-renders
-- Added virtualized rendering for large data tables
-- Optimized animation triggers with useCallback hooks
-- Reduced initial load time through code splitting
+*   **Module Resolution:** Ensure correct relative paths (`./`) for local imports in `.tsx` files. Missing `tsconfig.json` was a key blocker for `npm start`. Clean dependency installs (`rm -rf node_modules package-lock.json && npm install`) can resolve stubborn issues.
+*   **TypeScript Interfaces:** Carefully define and match interfaces in `mockData.ts` with component prop usage to avoid type errors (e.g., `MarketDynamicsDataPoint` vs. `MarketShare`).
+*   **Duplicate Declarations:** Be mindful of potential duplicate variable/interface declarations, especially when merging data from different sources. Use linter output and tools like `reapply` to resolve.
+*   **Styled-Components Types:** v6+ includes its own types; `@types/styled-components` is unnecessary and can cause conflicts.
+*   **Cursor Rules:** Use specific file paths (`/Insurtech Masterplan.txt`) when referencing root-level files in rules. `/lint` command is not the way to get linter errors; they are usually in context.
 
-## Design System
+## Cursor Rules Summary
 
-We've established a consistent design system with:
+- Reference this file (`DEVELOPMENT_NOTES.md`), `Masterplan`, and `DataContext` for context.
+- Prioritize Apple Design Principles for UI.
+- Prioritize functionality preservation.
+- Update `DEVELOPMENT_NOTES.md` with learnings after coding attempts.
+- Periodically consolidate these notes (new rule added).
 
-- Color palette variables
-- Typography scale
-- Spacing system
-- Component-specific styling patterns
-- Interaction models (hover, focus, active states)
-
-## Known Issues & Future Improvements
-
-1. Remaining eslint warnings for unused variables in multiple section components
-2. Need to implement responsive design for mobile devices
-3. Add unit tests for chart components
-4. Improve accessibility for screen readers
-5. Consider implementing a theme switcher (light/dark mode)
-
-## Development Workflow
-
-1. Feature branches for new functionality
-2. Pull requests with code review
-3. Testing in staging environment before production
-4. Documentation updates with each significant change
+*(This file should be updated regularly to reflect the current state and key learnings)*
