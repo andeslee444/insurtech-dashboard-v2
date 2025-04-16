@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/insurtech-dashboard-v2/static/css/main.fdfa3613.css",
+    "main.js": "/insurtech-dashboard-v2/static/js/main.0b123f7b.js",
+    "index.html": "/insurtech-dashboard-v2/index.html",
+    "main.fdfa3613.css.map": "/insurtech-dashboard-v2/static/css/main.fdfa3613.css.map",
+    "main.0b123f7b.js.map": "/insurtech-dashboard-v2/static/js/main.0b123f7b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fdfa3613.css",
+    "static/js/main.0b123f7b.js"
+  ]
+}
