@@ -1,0 +1,48 @@
+rules:
+  - id: dev_notes_context
+    description: Ensure development notes are referenced for context and updated after commands.
+    every_llm_call:
+      prompt_suffix: |
+        Refer to the `development_notes.md` file in the root folder for context. 
+        After executing the command, update `development_notes.md` with a summary of actions taken, new learnings, and relevant context changes.
+    trigger: command_sent
+
+  - id: apple_design_principles
+    description: Prioritize Apple design principles for visual elements.
+    every_llm_call:
+      prompt_suffix: |
+        When creating or modifying visual elements (UI/UX, components, styling), prioritize Apple design principles:
+        - Clarity: Use clean layouts, legible typography, and purposeful white space. Ensure interactive elements are easily identifiable.
+        - Deference: Allow content to be the primary focus. UI elements should be subtle, using translucency, light borders, and minimal decoration where appropriate. Avoid overly dominant branding or UI chrome.
+        - Depth: Employ subtle shadows, layering, and fluid animations/micro-interactions to establish hierarchy and provide context without being distracting. Use visual layers to convey relationships between elements.
+    trigger: code_generation, code_edit 
+
+  - id: functionality_first
+    description: Prioritize preserving functionality and the overall project goal.
+    every_llm_call:
+      prompt_suffix: |
+        Preserving existing functionality is the highest priority unless explicitly told otherwise. 
+        Always consider how your actions impact the ultimate goal: creating a visually appealing, interactive insurtech investment dashboard for investors. Avoid changes that might break the application or detract from this goal.
+    trigger: code_generation, code_edit, command_sent
+
+  - id: update_dev_notes_learnings
+    description: Update development notes after coding attempts with learnings for future AI improvement.
+    every_llm_call:
+      prompt_suffix: |
+        After every attempt to create or debug code (whether successful or not), update the `development_notes.md` file. 
+        Specifically, add a section under 'AI Learnings & Improvements' detailing any insights gained, challenges encountered, successful strategies, or things that didn't work. Focus on knowledge that would help a future AI assistant perform the task better, aiming for world-class coding practices.
+    trigger: code_generation, code_edit
+
+  - id: project_context_masterplan
+    description: Refer to Insurtech Masterplan.txt for broader project context when needed.
+    every_llm_call:
+      prompt_suffix: |
+        If you need more high-level project context, goals, or overall strategy, refer to the `/Insurtech Masterplan.txt` file in the root directory.
+    trigger: every_llm_call # Apply broadly when context might be needed
+
+  - id: data_context_reference
+    description: Refer to Insurtech DataContext.txt for mock data details when working with charts/visualizations.
+    every_llm_call:
+      prompt_suffix: |
+        When working with charts, visualizations, or other interactive elements that rely on mock data, consult the `/Insurtech DataContext.txt` file in the root directory for details on data structures, ranges, and intended representation.
+    trigger: code_generation, code_edit # Most relevant when actively using data
