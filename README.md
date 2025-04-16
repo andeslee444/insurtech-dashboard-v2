@@ -4,6 +4,13 @@ This project is a React-based interactive dashboard visualizing market trends, t
 
 Built for Stripes Venture Capital.
 
+**➡️ Live Demo: [https://andeslee444.github.io/insurtech-dashboard-v2/](https://andeslee444.github.io/insurtech-dashboard-v2/) ⬅️**
+
+*(Note: It might take a few minutes for the latest deployment to become active after a push.)*
+
+<!-- Placeholder for Screenshot -->
+<!-- ![Dashboard Preview](link/to/your/screenshot.png) --> 
+
 ## Features
 
 *   **Interactive Sections:** Explore 9 key areas of the InsurTech landscape:
