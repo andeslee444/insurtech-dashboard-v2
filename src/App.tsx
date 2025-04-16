@@ -1,62 +1,36 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Layout from './components/layout/Layout';
-import SectionContainer from './components/layout/SectionContainer';
-import OpportunityRadar from './components/common/OpportunityRadar';
-import WhiteSpaceIdentifier from './components/common/WhiteSpaceIdentifier';
-import InvestmentTimingAnalyzer from './components/common/InvestmentTimingAnalyzer';
-import ValuationPremiumCalculator from './components/common/ValuationPremiumCalculator';
-import ExitPathwayAnalyzer from './components/common/ExitPathwayAnalyzer';
-import InvestmentOpportunityScorecard from './components/common/InvestmentOpportunityScorecard';
-import { opportunityData } from './data/mockData';
 
 function App() {
-  const [selectedOpportunity, setSelectedOpportunity] = useState(opportunityData[0].category);
-
   return (
     <Layout>
-      <div className="dashboard-container">
-        <h1>Stripes Venture Capital Investment Dashboard</h1>
-        <p className="dashboard-description">
-          Identify the biggest gap areas to invest in within VC/PE
+      <div className="dashboard-container" style={{ padding: '20px' }}>
+        <h1 style={{ marginBottom: '16px', color: '#F5F5F7' }}>Stripes VC Insurtech Dashboard</h1>
+        <p style={{ marginBottom: '24px', color: '#8E8E93' }}>
+          Interactive analytics for the insurtech sector
         </p>
         
-        <div className="dashboard-grid">
-          <SectionContainer title="Investment Opportunity Scorecard">
-            <InvestmentOpportunityScorecard 
-              onOpportunitySelect={setSelectedOpportunity}
-            />
-          </SectionContainer>
-          
-          <SectionContainer title="Opportunity Analysis">
-            <OpportunityRadar 
-              selectedOpportunity={selectedOpportunity}
-              onOpportunitySelect={setSelectedOpportunity}
-            />
-          </SectionContainer>
-          
-          <SectionContainer title="White Space Identification">
-            <WhiteSpaceIdentifier 
-              onOpportunitySelect={setSelectedOpportunity}
-            />
-          </SectionContainer>
-          
-          <SectionContainer title="Investment Timing">
-            <InvestmentTimingAnalyzer 
-              onOpportunitySelect={setSelectedOpportunity}
-            />
-          </SectionContainer>
-          
-          <SectionContainer title="Valuation Premium">
-            <ValuationPremiumCalculator 
-              onOpportunitySelect={setSelectedOpportunity}
-            />
-          </SectionContainer>
-          
-          <SectionContainer title="Exit Pathway Analysis">
-            <ExitPathwayAnalyzer 
-              onOpportunitySelect={setSelectedOpportunity}
-            />
-          </SectionContainer>
+        <div style={{ 
+          backgroundColor: '#2C2C2E',
+          borderRadius: '12px',
+          padding: '24px',
+          boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)',
+        }}>
+          <h2 style={{ 
+            fontSize: '20px', 
+            fontWeight: 600, 
+            marginTop: 0, 
+            marginBottom: '16px', 
+            color: '#F5F5F7' 
+          }}>
+            Welcome to Stripes VC Insurtech Dashboard
+          </h2>
+          <p style={{ color: '#D1D1D6' }}>
+            This dashboard provides interactive visualizations for venture capital investment in the insurtech sector.
+          </p>
+          <p style={{ color: '#D1D1D6' }}>
+            Explore market trends, technology adoption, investment opportunities, and startup ecosystem data.
+          </p>
         </div>
       </div>
     </Layout>
