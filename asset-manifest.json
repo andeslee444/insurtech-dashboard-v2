@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/insurtech-dashboard-v2/static/css/main.fdfa3613.css",
-    "main.js": "/insurtech-dashboard-v2/static/js/main.0b123f7b.js",
+    "main.css": "/insurtech-dashboard-v2/static/css/main.d6603f27.css",
+    "main.js": "/insurtech-dashboard-v2/static/js/main.c0b01efc.js",
     "index.html": "/insurtech-dashboard-v2/index.html",
-    "main.fdfa3613.css.map": "/insurtech-dashboard-v2/static/css/main.fdfa3613.css.map",
-    "main.0b123f7b.js.map": "/insurtech-dashboard-v2/static/js/main.0b123f7b.js.map"
+    "main.d6603f27.css.map": "/insurtech-dashboard-v2/static/css/main.d6603f27.css.map",
+    "main.c0b01efc.js.map": "/insurtech-dashboard-v2/static/js/main.c0b01efc.js.map"
   },
   "entrypoints": [
-    "static/css/main.fdfa3613.css",
-    "static/js/main.0b123f7b.js"
+    "static/css/main.d6603f27.css",
+    "static/js/main.c0b01efc.js"
   ]
 }
